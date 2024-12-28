@@ -143,17 +143,32 @@ body {
 	border-radius: 15px;
 }
 
-button:hover {
+.button>button:hover {
 	background-color: white;
 	color: #01579B;
 	border: 2px solid #01579B;
 }
 
 .book-button {
-	color: white;
 	font-weight: bold;
 	padding: 10px 10px;
-	border: 2px solid #ffffff;
-	background-color: #4e342ec2;
 	border-radius: 15px;
+}
+
+.book-button:hover {
+	background-color: white;
+	color: #01579B;
+	border: 2px solid #01579B;
+}
+
+.read {
+	background-color: #4E342E;
+	color: white;
+	border: 2px solid white;
+}
+
+.notread {
+	background-color: white;
+	color: #4E342E;
+	border: 2px solid #4E342E;
 }
