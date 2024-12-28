@@ -1,0 +1,148 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+	margin: 0;
+	font-family: "Mystery Quest";
+}
+
+body {
+	/* 3. Add accessible line-height */
+	line-height: 1.5;
+	/* 4. Improve text rendering */
+	-webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+	text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+	isolation: isolate;
+}
+
+/* *************************************************** */
+/* PROJECT CSS */
+/* *************************************************** */
+
+body {
+	color: #5C5C5C;
+	background-color: #FFF4E6;
+}
+
+.library-title {
+	padding: 20px;
+	text-align: center;
+	font-size: 80px;
+	color: #01579B;
+	font-weight: bold;
+}
+
+.container {
+	display: flex;
+	gap: 30px;
+	padding: 20px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.card {
+	background-color: #FFFCDF;
+	border: 2px solid #FFDE99;
+	border-radius: 10px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	flex: 1 1 1;
+	height: 200px;
+	width: 250px;
+}
+
+.card:hover {
+	transform: scale(1.05);
+	box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+	color: #4E342E;
+	margin-bottom: 10px;
+}
+
+.card h4 {
+	color: #01579B;
+	font-style: italic;
+}
+
+.card p {
+	color: #5C5C5C;
+	font-size: 14px;
+	margin: 5px 0;
+}
+
+.button {
+	justify-content: center;
+	display: flex;
+}
+
+button {
+	font-size: large;
+	color: white;
+	font-weight: bold;
+	padding: 10px 10px;
+	border: 2px solid #ffffff;
+	background-color: #01579B;
+	border-radius: 15px;
+}
+
+button:hover {
+	background-color: white;
+	color: #01579B;
+	border: 2px solid #01579B;
+}
