@@ -23,7 +23,7 @@ function displayBooks(myLibrary) {
 		<h3>${Book.title}</h3>
 			by <h4>${Book.author}</h4>
 			<p>${Book.noOfPages} pages</p>
-			<p>${Book.readStatus}</p>`
+			<button class="book-button">${Book.readStatus}</button>`
 		;
 		container.appendChild(bookCard);
 	}
@@ -39,3 +39,15 @@ addBookToLibrary("War and Peace", "Leo Tolstoy", 1225, "Read");
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, "Read");
 addBookToLibrary("Harry Potter and the Philosopher's Stone", "J.K. Rowling", 223, "Read");
 addBookToLibrary("The Alchemist", "Paulo Coelho", 208, "Not Read");
+
+const readButtons = document.querySelectorAll('.book-button');
+readButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    if (button.innerHTML === "Read") {
+      button.innerHTML = "Not Read";
+    } else {
+      button.innerHTML = "Read";
+    }
+  });
+});
+
