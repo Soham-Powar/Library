@@ -41,20 +41,7 @@ function displayBooks() {
   addEventListeners(); // Add event listeners after re-rendering
 }
 
-//to let some books be by default in library
-
-addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, "Read");
-addBookToLibrary("A Game of Thrones", "George R.R. Martin", 694, "Not Read");
-addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, "Read");
-addBookToLibrary("The Catcher in the Rye", "J.D. Salinger", 277, "Not Read");
-// addBookToLibrary("Moby Dick", "Herman Melville", 635, "Not Read");
-// addBookToLibrary("Pride and Prejudice", "Jane Austen", 279, "Read");
-// addBookToLibrary("War and Peace", "Leo Tolstoy", 1225, "Read");
-// addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, "Read");
-// addBookToLibrary("Harry Potter and the Philosopher's Stone", "J.K. Rowling", 223, "Read");
-// addBookToLibrary("The Alchemist", "Paulo Coelho", 208, "Not Read");
-
-
+//listens for 'remove book' and 'toggleread' events.
 function addEventListeners() {
   const removeBookBtns = document.querySelectorAll('.cross-btn');
   const toggleReadBtns = document.querySelectorAll('.book-button');
@@ -116,3 +103,16 @@ form.addEventListener('submit', event => {
   	form.reset();
   	dialog.close();
 });
+
+//to let some books be by default in library
+
+addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, "Read");
+addBookToLibrary("A Game of Thrones", "George R.R. Martin", 694, "Not Read");
+addBookToLibrary("A Good Girl's Guide to Murder", "Holly Jackson", 400, "Read");
+addBookToLibrary("The Catcher in the Rye", "J.D. Salinger", 277, "Not Read");
+// addBookToLibrary("Moby Dick", "Herman Melville", 635, "Not Read");
+// addBookToLibrary("Pride and Prejudice", "Jane Austen", 279, "Read");
+// addBookToLibrary("War and Peace", "Leo Tolstoy", 1225, "Read");
+// addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, "Read");
+// addBookToLibrary("Harry Potter and the Philosopher's Stone", "J.K. Rowling", 223, "Read");
+// addBookToLibrary("The Alchemist", "Paulo Coelho", 208, "Not Read");
