@@ -42,8 +42,8 @@ function displayBooks() {
 }
 
 addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, "Read");
-addBookToLibrary("A Game of Thrones", "George R.R. Martin", 694, "Read");
-addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, "Not Read");
+addBookToLibrary("A Game of Thrones", "George R.R. Martin", 694, "Not Read");
+addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, "Read");
 addBookToLibrary("The Catcher in the Rye", "J.D. Salinger", 277, "Not Read");
 // addBookToLibrary("Moby Dick", "Herman Melville", 635, "Not Read");
 // addBookToLibrary("Pride and Prejudice", "Jane Austen", 279, "Read");
@@ -111,7 +111,5 @@ form.addEventListener('submit', event => {
 	addBookToLibrary(event.target.bookTitle.value, event.target.bookAuthor.value, event.target.pages.value , event.target.read.value);
 
   	form.reset();
-
- 	const dialog = document.querySelector('dialog');
   	dialog.close();
 });
