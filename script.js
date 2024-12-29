@@ -41,6 +41,8 @@ function displayBooks() {
   addEventListeners(); // Add event listeners after re-rendering
 }
 
+//to let some books be by default in library
+
 addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, "Read");
 addBookToLibrary("A Game of Thrones", "George R.R. Martin", 694, "Not Read");
 addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, "Read");
@@ -89,6 +91,7 @@ function addReadBtnStyle() {
 }
 
 //for the form that shows up on clicking add book btn.
+
 const dialog = document.querySelector("dialog");
 const addBookBtn = document.querySelector('.addBookBtn');
 const closeFormBtn = document.querySelector(".header button");
