@@ -7,65 +7,111 @@ function Book (title, author, noOfPages, readStatus) {
 	this.readStatus = readStatus;
 }
 
+Book.prototype.toggleReadStatus = function () {
+  this.readStatus = this.readStatus === "Read" ? "Not Read" : "Read";
+};
+
 //Adds book to the library array.
 function addBookToLibrary(title, author, noOfPages, readStatus) {
 	const newBook = new Book(title, author, noOfPages, readStatus);
 	myLibrary.push(newBook);
-displayBooks(myLibrary);
+	displayBooks(myLibrary);
 }
 
 //This displays all the books currently present in the array.
 //Creates a div and adds all the information about the book.
-function displayBooks(myLibrary) {
-	const container = document.querySelector('.container');
-	container.innerHTML = '';
-	for (const Book of myLibrary) {
-		const bookCard = document.createElement("div");
-		bookCard.className = "card";
-		bookCard.innerHTML = `
-		<h3>${Book.title}</h3>
-			by <h4>${Book.author}</h4>
-			<p>${Book.noOfPages} pages</p>
-			<button class="book-button">${Book.readStatus}</button>`
-		;
-		container.appendChild(bookCard);
-	}
+function displayBooks() {
+  const container = document.querySelector('.container');
+  container.innerHTML = '';
+  myLibrary.forEach((book, index) => {
+    const bookCard = document.createElement("div");
+    bookCard.className = "card";
+    bookCard.setAttribute("data-index", index);
+
+    bookCard.innerHTML = `
+      <h3>${book.title}<button class="cross-btn">X</button></h3>
+      by <h4>${book.author}</h4>
+      <p>${book.noOfPages} pages</p>
+      <button class="book-button">${book.readStatus}</button>
+    `;
+    container.appendChild(bookCard);
+  });
+	  addReadBtnStyle();
+
+  addEventListeners(); // Add event listeners after re-rendering
 }
 
 addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, "Read");
-addBookToLibrary("1984", "George Orwell", 328, "Not Read");
-addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, "Read");
+addBookToLibrary("A Game of Thrones", "George R.R. Martin", 694, "Read");
+addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, "Not Read");
 addBookToLibrary("The Catcher in the Rye", "J.D. Salinger", 277, "Not Read");
-addBookToLibrary("Moby Dick", "Herman Melville", 635, "Not Read");
-addBookToLibrary("Pride and Prejudice", "Jane Austen", 279, "Read");
-addBookToLibrary("War and Peace", "Leo Tolstoy", 1225, "Read");
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, "Read");
-addBookToLibrary("Harry Potter and the Philosopher's Stone", "J.K. Rowling", 223, "Read");
-addBookToLibrary("The Alchemist", "Paulo Coelho", 208, "Not Read");
+// addBookToLibrary("Moby Dick", "Herman Melville", 635, "Not Read");
+// addBookToLibrary("Pride and Prejudice", "Jane Austen", 279, "Read");
+// addBookToLibrary("War and Peace", "Leo Tolstoy", 1225, "Read");
+// addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, "Read");
+// addBookToLibrary("Harry Potter and the Philosopher's Stone", "J.K. Rowling", 223, "Read");
+// addBookToLibrary("The Alchemist", "Paulo Coelho", 208, "Not Read");
 
 
+function addEventListeners() {
+  const removeBookBtns = document.querySelectorAll('.cross-btn');
+  const toggleReadBtns = document.querySelectorAll('.book-button');
 
-//This function handles the read/not read text of  buttons
-//and also their styling.
-const readButtons = document.querySelectorAll('.book-button');
-readButtons.forEach((button) => {
-	if(button.innerHTML === "Read") {
-		button.classList.add('read');
-	}
-	else {
-		button.classList.add('notread');
-	}
-  button.addEventListener('click', () => {
-    if (button.innerHTML === "Read") {
-      button.innerHTML = "Not Read";
-		button.classList.add('notread');
-		button.classList.remove('read');
-
-    } else {
-      button.innerHTML = "Read";
-	  		button.classList.add('read');
-		button.classList.remove('notread');
-    }
+  removeBookBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const index = btn.closest(".card").getAttribute('data-index');
+      myLibrary.splice(index, 1);
+      displayBooks();
+    });
   });
+
+  toggleReadBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const index = btn.closest(".card").getAttribute('data-index');
+      myLibrary[index].toggleReadStatus();
+      displayBooks();
+    });
+  });
+}
+
+function addReadBtnStyle() {
+  const readBtns = document.querySelectorAll('.book-button');
+	readBtns.forEach((btn) => {
+		if(btn.innerHTML === 'Read') {
+			btn.classList.add("read");
+			btn.classList.remove("notread");
+		}
+		else {
+			btn.classList.add("notread");
+			btn.classList.remove("read");
+		}
+	});
+}
+
+//for the form that shows up on clicking add book btn.
+const dialog = document.querySelector("dialog");
+const addBookBtn = document.querySelector('.addBookBtn');
+const closeFormBtn = document.querySelector(".header button");
+
+addBookBtn.addEventListener('click', () => {
+	dialog.showModal();
 });
 
+closeFormBtn.addEventListener('click', () => {
+	dialog.close();
+})
+
+//to add the filled form to library
+
+const form = document.querySelector('form');
+form.addEventListener('submit', event => {
+
+	event.preventDefault();
+
+	addBookToLibrary(event.target.bookTitle.value, event.target.bookAuthor.value, event.target.pages.value , event.target.read.value);
+
+  	form.reset();
+
+ 	const dialog = document.querySelector('dialog');
+  	dialog.close();
+});

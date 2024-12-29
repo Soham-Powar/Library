@@ -162,13 +162,94 @@ body {
 }
 
 .read {
-	background-color: #4E342E;
-	color: white;
-	border: 2px solid white;
+	background-color: #FFDE99;
+	color: black;
+	border: 2px solid black;
 }
 
 .notread {
-	background-color: white;
+	background-color: #FFFCDF;
 	color: #4E342E;
 	border: 2px solid #4E342E;
+}
+
+.card>h3 {
+	display: flex;
+	justify-content: space-between;
+}
+
+.cross-btn {
+	position: relative;
+	bottom: 15px;
+	left: 15px;
+	border: none;
+	background-color: transparent;
+	color: rgb(247, 80, 80);
+}
+
+.cross-btn:hover {
+	color: red;
+}
+
+dialog {
+	margin: auto;
+	background-color: #FFFCDF;
+	border: 5px solid #01579B;
+	border-radius: 5px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.header>button {
+	position: relative;
+	left: 51%;
+	bottom: 20px;
+	background: transparent;
+	color: rgb(255, 85, 85);
+	border: none;
+	font-size: 22px;
+}
+
+.header>button:hover {
+	color: red;
+}
+
+input {
+	border: none;
+	border-radius: 5px;
+	background-color: #fce8bc;
+	border: 2px solid #01579B;
+}
+
+form>div {
+	display: flex;
+	gap: 10px;
+}
+
+form>div>input {
+	flex: 1;
+}
+
+#addBookBtn {
+	font-size: large;
+	color: white;
+	font-weight: bold;
+	padding: 10px 10px;
+	border: 2px solid #ffffff;
+	background-color: #01579B;
+	border-radius: 15px;
+}
+
+#addBookBtn:hover {
+	background-color: white;
+	color: #01579B;
+	border: 2px solid #01579B;
+}
+
+::backdrop {
+	backdrop-filter: blur(7px);
 }
