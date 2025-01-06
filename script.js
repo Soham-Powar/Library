@@ -116,3 +116,19 @@ addBookToLibrary("The Catcher in the Rye", "J.D. Salinger", 277, "Not Read");
 // addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, "Read");
 // addBookToLibrary("Harry Potter and the Philosopher's Stone", "J.K. Rowling", 223, "Read");
 // addBookToLibrary("The Alchemist", "Paulo Coelho", 208, "Not Read");
+
+
+//USING CLASSES
+
+class book {
+  constructor (title, author, noOfPages, readStatus){
+    this.title = title;
+    this.author = author;
+    this.noOfPages = noOfPages;
+    this.readStatus = readStatus;
+  }
+
+  toggleReadStatus() {
+    this.readStatus = this.readStatus === "Read" ? "Not Read" : "Read"; 
+  }
+}
