@@ -1,15 +1,29 @@
 const myLibrary = [];
 
-function Book (title, author, noOfPages, readStatus) {
-	this.title = title;
-	this.author = author;
-	this.noOfPages = noOfPages;
-	this.readStatus = readStatus;
-}
+// function Book (title, author, noOfPages, readStatus) {
+// 	this.title = title;
+// 	this.author = author;
+// 	this.noOfPages = noOfPages;
+// 	this.readStatus = readStatus;
+// }
 
-Book.prototype.toggleReadStatus = function () {
-  this.readStatus = this.readStatus === "Read" ? "Not Read" : "Read";
-};
+// Book.prototype.toggleReadStatus = function () {
+//   this.readStatus = this.readStatus === "Read" ? "Not Read" : "Read";
+// };
+
+class Book {
+
+  constructor (title, author, noOfPages, readStatus){
+    this.title = title;
+    this.author = author;
+    this.noOfPages = noOfPages;
+    this.readStatus = readStatus;
+  }
+
+  toggleReadStatus() {
+    this.readStatus = this.readStatus === "Read" ? "Not Read" : "Read"; 
+  }
+}
 
 //Adds book to the library array.
 function addBookToLibrary(title, author, noOfPages, readStatus) {
@@ -116,19 +130,3 @@ addBookToLibrary("The Catcher in the Rye", "J.D. Salinger", 277, "Not Read");
 // addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, "Read");
 // addBookToLibrary("Harry Potter and the Philosopher's Stone", "J.K. Rowling", 223, "Read");
 // addBookToLibrary("The Alchemist", "Paulo Coelho", 208, "Not Read");
-
-
-//USING CLASSES
-
-class book {
-  constructor (title, author, noOfPages, readStatus){
-    this.title = title;
-    this.author = author;
-    this.noOfPages = noOfPages;
-    this.readStatus = readStatus;
-  }
-
-  toggleReadStatus() {
-    this.readStatus = this.readStatus === "Read" ? "Not Read" : "Read"; 
-  }
-}
