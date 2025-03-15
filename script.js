@@ -118,6 +118,12 @@ form.addEventListener('submit', event => {
   	dialog.close();
 });
 
+
+
+
+
+
+
 //to let some books be by default in library
 
 addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, "Read");
